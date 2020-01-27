@@ -18,7 +18,6 @@ public class Student {
     }
 
     public void setFirstName(String firstName) {
-        firstName.charAt(1);
         if (firstName.length() > 1 && Character.isUpperCase(firstName.codePointAt(0)))
         this.firstName = firstName;
         else
@@ -42,7 +41,7 @@ public class Student {
     }
 
     public void setStudentNumber(int studentNumber) {
-        if (studentNumber < 10000000 || studentNumber > 9999999)
+        if (studentNumber >= 9999999 && studentNumber <= 10000000)
         this.studentNumber = studentNumber;
         else
             throw new IllegalArgumentException("must be in range of 10000000-9999999");
