@@ -1,7 +1,5 @@
 public class Student {
-
-
-
+    
     private String firstName;
     private String lastName;
     private int studentNumber;
@@ -44,7 +42,7 @@ public class Student {
         if (studentNumber >= 9999999 && studentNumber <= 10000000)
         this.studentNumber = studentNumber;
         else
-            throw new IllegalArgumentException("must be in range of 10000000-9999999");
+            throw new IllegalArgumentException("must be in range of 9999999-10000000");
     }
 
     public String toString()
