@@ -11,7 +11,7 @@
          <children>
             <ImageView fx:id="myImage" fitHeight="175.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image  url="@images/image0.jpg" />
+                  <Image url="@images/image0.jpg" />
                </image>
                <HBox.margin>
                   <Insets left="20.0" top="20.0" />
@@ -37,7 +37,7 @@
             </ScrollBar>
          </children>
       </HBox>
-      <VBox layoutX="1.0" layoutY="200.0" prefHeight="200.0" prefWidth="600.0">
+      <VBox layoutX="1.0" layoutY="200.0" prefHeight="200.0" prefWidth="301.0">
          <children>
             <Label fx:id="fName" text="First Name:">
                <padding>
@@ -56,5 +56,16 @@
             </Label>
          </children>
       </VBox>
+      <HBox layoutX="305.0" layoutY="200.0" prefHeight="200.0" prefWidth="309.0">
+         <children>
+            <ImageView fx:id="myImage2" fitHeight="200.0" fitWidth="270.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/LakeheadGeorgian.jpg" />
+               </image>
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin></ImageView>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

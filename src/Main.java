@@ -8,7 +8,7 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
-        Student Will = new Student("William", "Van Wieringen", 1111523);
+        Student Will = new Student("William", "Van Wieringen", 1111523, "Gaming");
         System.out.println(Will.toString());
     }
 

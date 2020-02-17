@@ -1,17 +1,34 @@
+import javax.smartcardio.Card;
+import java.util.ArrayList;
+
 public class Student {
     
     private String firstName;
     private String lastName;
     private int studentNumber;
+    private String activity;
+    ArrayList<String> favoriteActivities;
 
 
-    public Student(String firstName, String lastName, int studentNumber) {
+
+    public Student(String firstName, String lastName, int studentNumber, String activity) {
         setFirstName(firstName);
         setLastName(lastName);
         setStudentNumber(studentNumber);
+        setActivity(activity);
+        favoriteActivities = new ArrayList<>();
     }
 
 
+
+
+    public String getActivity() {
+        return activity;
+    }
+
+    public void setActivity(String activity) {
+            this.activity = activity;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -47,9 +64,18 @@ public class Student {
             throw new IllegalArgumentException("must be in range of 9999999-10000000");
     }
 
+    public ArrayList<String> getFavoriteActivities() {
+        return favoriteActivities;
+    }
+
+    public void setFavoriteActivities(ArrayList<String> favoriteActivities) {
+        this.favoriteActivities = favoriteActivities;
+    }
+
     public String toString()
     {
         return String.format("%s %s student #: %d", firstName, lastName, studentNumber);
     }
 
 }
+
