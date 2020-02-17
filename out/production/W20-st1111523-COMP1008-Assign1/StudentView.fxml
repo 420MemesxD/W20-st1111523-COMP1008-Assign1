@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StudentViewController">
+   <children>
+      <HBox prefHeight="200.0" prefWidth="600.0">
+         <children>
+            <ImageView fx:id="myImage" fitHeight="175.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/image0.jpg" />
+               </image>
+               <HBox.margin>
+                  <Insets left="20.0" top="20.0" />
+               </HBox.margin>
+            </ImageView>
+            <Label alignment="TOP_CENTER" prefHeight="174.0" prefWidth="208.0" text="Favourite Activities:">
+               <HBox.margin>
+                  <Insets top="20.0" />
+               </HBox.margin>
+               <padding>
+                  <Insets top="30.0" />
+               </padding>
+            </Label>
+            <TextArea fx:id="textArea" prefHeight="140.0" prefWidth="300.0">
+               <HBox.margin>
+                  <Insets bottom="20.0" top="40.0" />
+               </HBox.margin>
+            </TextArea>
+            <ScrollBar orientation="VERTICAL" prefHeight="176.0" prefWidth="14.0">
+               <HBox.margin>
+                  <Insets bottom="20.0" right="20.0" top="40.0" />
+               </HBox.margin>
+            </ScrollBar>
+         </children>
+      </HBox>
+      <VBox layoutX="1.0" layoutY="200.0" prefHeight="200.0" prefWidth="301.0">
+         <children>
+            <Label fx:id="fName" text="First Name:">
+               <padding>
+                  <Insets bottom="30.0" left="30.0" top="30.0" />
+               </padding>
+            </Label>
+            <Label fx:id="lName" text="Last Name:">
+               <padding>
+                  <Insets bottom="30.0" left="30.0" />
+               </padding>
+            </Label>
+            <Label fx:id="sNumber" text="Student Number:">
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
+            </Label>
+         </children>
+      </VBox>
+      <HBox layoutX="305.0" layoutY="200.0" prefHeight="200.0" prefWidth="309.0">
+         <children>
+            <ImageView fx:id="myImage2" fitHeight="200.0" fitWidth="270.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/LakeheadGeorgian.jpg" />
+               </image>
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin></ImageView>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

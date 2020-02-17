@@ -18,9 +18,14 @@ public class StudentViewController implements Initializable {
     @FXML private ImageView myImage2;
     private Student card;
 
+    /**
+     * The constructor will insert all the values for first name, last name, student number and my hobbies and display them.
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        card = new Student("William", "Van Wieringen", 1111523, "Gaming");
+        card = new Student("William", "Van Wieringen", 1111523);
         Activity gaming = new Activity("Gaming");
         Activity paintball = new Activity("Paintball");
         Activity eating = new Activity("Eating");
@@ -36,6 +41,9 @@ public class StudentViewController implements Initializable {
 
     }
 
+    /**
+     * Update the info for first name, last name and student number
+     */
     @FXML
     private void updateInfo()
     {
