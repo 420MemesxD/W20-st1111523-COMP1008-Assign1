@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="NewStudentViewController">
+   <children>
+      <VBox layoutX="83.0" layoutY="75.0" prefHeight="114.0" prefWidth="111.0">
+         <children>
+            <Label text="First Name">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets bottom="24.0" />
+               </padding>
+            </Label>
+            <Label text="Last Name">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets bottom="19.0" />
+               </padding>
+            </Label>
+            <Label text="Student Number">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <HBox layoutX="184.0" layoutY="14.0" prefHeight="35.0" prefWidth="227.0">
+         <children>
+            <Label alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="35.0" prefWidth="227.0" text="Create New Student">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <VBox layoutX="205.0" layoutY="75.0" prefHeight="114.0" prefWidth="297.0">
+         <children>
+            <TextField fx:id="firstNameText">
+               <VBox.margin>
+                  <Insets bottom="15.0" right="50.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="lastNameText">
+               <VBox.margin>
+                  <Insets bottom="15.0" right="50.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="studentNumText">
+               <VBox.margin>
+                  <Insets right="50.0" />
+               </VBox.margin>
+            </TextField>
+         </children>
+      </VBox>
+      <VBox layoutX="205.0" layoutY="211.0" prefHeight="88.0" prefWidth="121.0">
+         <children>
+            <CheckBox fx:id="gamingCheckBox" mnemonicParsing="false" text="Gaming">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="paintBallingCheckBox" mnemonicParsing="false" text="Paint Balling">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="hikingCheckBox" mnemonicParsing="false" text="Hiking">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="readingCheckBox" mnemonicParsing="false" text="Reading">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </CheckBox>
+         </children>
+      </VBox>
+      <VBox layoutX="326.0" layoutY="211.0" prefHeight="88.0" prefWidth="127.0">
+         <children>
+            <CheckBox fx:id="pickingFlowersCheckBox" mnemonicParsing="false" text="Picking Flowers">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="PrintingCheckBox" mnemonicParsing="false" text="3D Printing">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="woodCarvingCheckBox" mnemonicParsing="false" text="Wood carving">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="tableTennisCheckBox" mnemonicParsing="false" text="Table Tennis">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </CheckBox>
+         </children>
+      </VBox>
+      <VBox layoutX="89.0" layoutY="211.0" prefHeight="88.0" prefWidth="100.0">
+         <children>
+            <Label text="Interests:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <HBox layoutX="272.0" layoutY="343.0" prefHeight="25.0" prefWidth="56.0" />
+      <Button layoutX="271.0" layoutY="356.0" mnemonicParsing="false" onAction="#submitInfo" text="Submit" />
+      <Label fx:id="warningLabel" layoutX="155.0" layoutY="326.0" prefHeight="17.0" prefWidth="290.0" textFill="RED" />
+   </children>
+</AnchorPane>
