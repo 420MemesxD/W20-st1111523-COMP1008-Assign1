@@ -36,7 +36,7 @@ public class NewStudentViewController implements Initializable {
      */
     public void submitInfo()
     {
-        String studentInfo = "Favourite Activities";
+        String studentInfo = "\nFavourite Activities:";
         String firstName = firstNameText.getText();
         String lastName = lastNameText.getText();
 
@@ -45,7 +45,7 @@ public class NewStudentViewController implements Initializable {
             int studentNumber = Integer.parseInt(studentNumText.getText());
             newCard = new Student(firstName, lastName, studentNumber);
 
-            System.out.print("New Student: " + newCard);
+            System.out.print("\nNew Student: " + newCard);
 
 
         } catch (IllegalArgumentException e){
