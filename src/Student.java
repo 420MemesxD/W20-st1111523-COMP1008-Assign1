@@ -2,6 +2,7 @@ public class Student {
     
     private String firstName;
     private String lastName;
+    private String activities;
     private int studentNumber;
 
 
@@ -12,12 +13,13 @@ public class Student {
      * @param firstName
      * @param lastName
      * @param studentNumber
+     * @param activities
      */
-    public Student(String firstName, String lastName, int studentNumber) {
+    public Student(String firstName, String lastName, int studentNumber, String activities) {
         setFirstName(firstName);
         setLastName(lastName);
         setStudentNumber(studentNumber);
-
+        setActivities(activities);
     }
 
     /**
@@ -73,11 +75,25 @@ public class Student {
     }
 
     /**
+     * getter for activities
+     */
+    public String getActivities() {
+        return activities;
+    }
+
+    /**
+     * setter for activities
+     */
+    public void setActivities(String activities) {
+        this.activities = activities;
+    }
+
+    /**
      * converts firstName lastName and studentNumber to strings
      */
     public String toString()
     {
-        return String.format("%s %s student #: %d", firstName, lastName, studentNumber);
+        return String.format("%s %s student #: %d %s", firstName, lastName, studentNumber, activities);
     }
 
 }
