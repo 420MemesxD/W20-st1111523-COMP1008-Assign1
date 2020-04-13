@@ -4,80 +4,90 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="647.0"
-            prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="StudentViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StudentViewController">
     <children>
-        <HBox prefHeight="200.0" prefWidth="600.0">
+        <HBox layoutY="76.0" prefHeight="196.0" prefWidth="600.0">
             <children>
                 <ImageView fx:id="myImage" fitHeight="175.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true">
                     <HBox.margin>
-                        <Insets left="20.0" top="20.0"/>
+                        <Insets left="20.0" top="20.0" />
                     </HBox.margin>
                 </ImageView>
-                <Label alignment="TOP_CENTER" prefHeight="174.0" prefWidth="208.0" text="Favourite Activities:">
+                <Label alignment="TOP_CENTER" prefHeight="174.0" prefWidth="161.0" text="Favourite Activities:">
                     <HBox.margin>
-                        <Insets top="20.0"/>
+                        <Insets top="20.0" />
                     </HBox.margin>
                     <padding>
-                        <Insets top="30.0"/>
+                        <Insets top="30.0" />
                     </padding>
                 </Label>
                 <TextArea fx:id="textArea" prefHeight="140.0" prefWidth="300.0">
                     <HBox.margin>
-                        <Insets bottom="20.0" top="40.0"/>
+                        <Insets bottom="20.0" top="40.0" />
                     </HBox.margin>
                 </TextArea>
                 <ScrollBar orientation="VERTICAL" prefHeight="176.0" prefWidth="14.0">
                     <HBox.margin>
-                        <Insets bottom="20.0" right="20.0" top="40.0"/>
+                        <Insets bottom="20.0" right="20.0" top="40.0" />
                     </HBox.margin>
                 </ScrollBar>
             </children>
         </HBox>
-        <VBox layoutX="1.0" layoutY="200.0" prefHeight="200.0" prefWidth="301.0">
+        <VBox layoutX="1.0" layoutY="278.0" prefHeight="153.0" prefWidth="301.0">
             <children>
                 <Label fx:id="fName" text="First Name:">
                     <padding>
-                        <Insets bottom="20.0" left="30.0" top="30.0"/>
+                        <Insets bottom="20.0" left="30.0" top="30.0" />
                     </padding>
                 </Label>
                 <Label fx:id="lName" text="Last Name:">
                     <padding>
-                        <Insets bottom="20.0" left="30.0"/>
+                        <Insets bottom="20.0" left="30.0" />
                     </padding>
                 </Label>
                 <Label fx:id="sNumber" text="Student Number:">
                     <padding>
-                        <Insets bottom="20.0" left="30.0"/>
+                        <Insets bottom="20.0" left="30.0" />
                     </padding>
                 </Label>
                 <Label fx:id="birthday" text="Age:">
                     <padding>
-                        <Insets left="30.0"/>
+                        <Insets left="30.0" />
                     </padding>
                 </Label>
             </children>
         </VBox>
-        <HBox layoutX="305.0" layoutY="200.0" prefHeight="200.0" prefWidth="309.0">
+        <HBox layoutX="305.0" layoutY="278.0" prefHeight="160.0" prefWidth="309.0">
             <children>
                 <ImageView fx:id="myImage2" fitHeight="200.0" fitWidth="270.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@images/LakeheadGeorgian.jpg"/>
+                        <Image url="@images/LakeheadGeorgian.jpg" />
                     </image>
                     <HBox.margin>
-                        <Insets right="20.0"/>
+                        <Insets right="20.0" />
                     </HBox.margin>
                 </ImageView>
             </children>
         </HBox>
-        <ListView fx:id="listView" layoutX="20.0" layoutY="418.0" prefHeight="209.0" prefWidth="560.0"/>
-        <VBox layoutX="223.0" layoutY="380.0" prefHeight="28.0" prefWidth="149.0">
+        <ListView fx:id="listView" layoutX="20.0" layoutY="478.0" onMouseClicked="#listViewSelected" prefHeight="219.0" prefWidth="560.0" />
+        <VBox layoutX="223.0" layoutY="440.0" prefHeight="29.0" prefWidth="149.0">
             <children>
-                <Button mnemonicParsing="false" onAction="#changeScreen" prefHeight="25.0" prefWidth="146.0"
-                        text="Create New Student"/>
+                <Button mnemonicParsing="false" onAction="#changeScreen" prefHeight="25.0" prefWidth="146.0" text="Create New Student" />
             </children>
         </VBox>
+      <HBox layoutX="-2.0" layoutY="-1.0" prefHeight="77.0" prefWidth="600.0">
+         <children>
+            <Label text="Student Profiles">
+               <font>
+                  <Font size="36.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="175.0" top="13.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
     </children>
 </AnchorPane>

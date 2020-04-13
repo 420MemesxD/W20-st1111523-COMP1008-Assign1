@@ -57,9 +57,7 @@ public class NewStudentViewController implements Initializable {
     }
 
     /**
-     * This method will open the file explorer so that the user can choose and image that they would like to use on their student card
-     *
-     * @param event
+     * This method will open the file explorer so that the user can choose an image that they would like to use on their student card
      */
     public void selectImage(ActionEvent event) {
         //get the stage to open a new window
@@ -93,29 +91,24 @@ public class NewStudentViewController implements Initializable {
     }
 
     /**
-     * The submit info method gets the values from the text fields validates to make sure there is text in there and if
-     * the student number isn't in the set range if will return an error to the user. It also gets all the values from the
-     * selected check boxes a displays all the new information in the console when the submit button is click or this method
-     * is called.
+     * Fills the entries with a default student
      */
+    public void loadDefaultStudent(ActionEvent event){
+        LocalDate myBirthday = LocalDate.of(2001, 11, 6);
 
+        imageView.setImage(new Image("me.jpg"));
+        firstNameText.setText("William");
+        lastNameText.setText("Van Wieringen");
+        studentNumText.setText("1111523");
+        date.setValue(myBirthday);
+        gamingCheckBox.setSelected(true);
+        paintBallingCheckBox.setSelected(true);
 
-    /**
-     * When this method is called, it will go to my other scene
-     */
-    public void changeScreen(ActionEvent event) throws IOException {
-        Parent tableViewParent = FXMLLoader.load(getClass().getResource("StudentView.fxml"));
-        Scene tableViewScene = new Scene(tableViewParent);
-
-        //get the stage info
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-        window.setScene(tableViewScene);
-        window.show();
     }
 
     /**
-     * When this method is called, it will pass the info over
+     * When this method is called, it will pass the info over to the other stage. This method also gets the values from the text fields
+     * validates to make sure there is text in there and if the student number isn't in the set range if will return an error to the user if triggered.
      */
     public void passInformation(ActionEvent event) throws IOException {
 
@@ -172,8 +165,7 @@ public class NewStudentViewController implements Initializable {
 
             //access the controller and call a method
             StudentViewController controller = loader.getController();
-            controller.initData(newCard);
-
+            controller.selectedStudent(newCard);
 
             //get the stage info
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();

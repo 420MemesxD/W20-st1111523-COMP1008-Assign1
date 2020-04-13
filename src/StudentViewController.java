@@ -13,7 +13,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 
@@ -47,9 +46,19 @@ public class StudentViewController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-
     }
 
+    /**
+     * gets the selected item from list view and calls initData
+     */
+    public void listViewSelected(){
+        card = listView.getSelectionModel().getSelectedItem();
+        initData();
+    }
+
+    /**
+     * This method will change the scene to NewStudentView
+     */
     public void changeScreen(ActionEvent event) throws IOException {
         Parent tableViewParent = FXMLLoader.load(getClass().getResource("NewStudentView.fxml"));
         Scene tableViewScene = new Scene(tableViewParent);
@@ -62,20 +71,24 @@ public class StudentViewController implements Initializable {
     }
 
     /**
-     * Update the info for first name, last name, student number and activities
+     * Update the info for first name, last name, student number, activities, age and image.
      */
-    public void initData(Student student) {
+    public void initData() {
 
-        card = student;
         fName.setText("First Name: " + card.getFirstName());
         lName.setText("Last Name: " + card.getLastName());
         sNumber.setText("Student Number: " + (card.getStudentNumber()));
         birthday.setText("Age: " + (Integer.toString(card.getAge())));
         textArea.setText(card.getActivities());
         myImage.setImage(card.getPicture());
-        listView.getItems().addAll(Main.getStudents());
-
-
     }
 
+    /**
+     * gets the passed over values from the other scene and sets card equal to student and adds it to the list view then runs initData
+     */
+    public void selectedStudent(Student student){
+        card = student;
+        listView.getItems().addAll(Main.getStudents());
+        initData();
+    }
 }
