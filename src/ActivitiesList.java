@@ -9,6 +9,7 @@ public class ActivitiesList {
     /**
      * This constructor accepts a activity list to be printed on the student card.
      * It also initializes the ActivityList object with valid values for each variable.
+     *
      * @param activityList
      */
     public ActivitiesList(String activityList) {
@@ -48,10 +49,9 @@ public class ActivitiesList {
      * method for adding an Activity to the array list and validating that there is anything there
      */
     public void addActivity(Activity activity) {
-        if(activity.toString().length() > 1){
+        if (activity.toString().length() > 1) {
             hobbies.add(activity);
-        }
-        else{
+        } else {
             throw new IllegalArgumentException("Activity must have at least one character");
         }
     }
@@ -59,7 +59,7 @@ public class ActivitiesList {
     /**
      * converts hobbies to a string
      */
-    public String toString(){
+    public String toString() {
         return String.format("%s", hobbies);
     }
 

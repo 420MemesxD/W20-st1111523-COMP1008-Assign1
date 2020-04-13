@@ -8,6 +8,7 @@ public class Activity {
     /**
      * This constructor accepts a activity to be printed on the student card.
      * It also initializes the Activity object with valid values for each variable.
+     *
      * @param activity
      */
     public Activity(String activity) {
@@ -31,7 +32,7 @@ public class Activity {
     /**
      * Converts activity to a string
      */
-    public String toString(){
+    public String toString() {
         return String.format("%s", activity);
     }
 }

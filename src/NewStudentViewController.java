@@ -1,7 +1,10 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -9,54 +12,72 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 
 public class NewStudentViewController implements Initializable {
-    @FXML private TextField firstNameText;
-    @FXML private TextField lastNameText;
-    @FXML private TextField studentNumText;
-    @FXML private CheckBox gamingCheckBox;
-    @FXML private CheckBox paintBallingCheckBox;
-    @FXML private CheckBox hikingCheckBox;
-    @FXML private CheckBox readingCheckBox;
-    @FXML private CheckBox pickingFlowersCheckBox;
-    @FXML private CheckBox PrintingCheckBox;
-    @FXML private CheckBox woodCarvingCheckBox;
-    @FXML private CheckBox tableTennisCheckBox;
-    @FXML private Label warningLabel;
-    @FXML private ImageView imageView;
+    @FXML
+    private TextField firstNameText;
+    @FXML
+    private TextField lastNameText;
+    @FXML
+    private TextField studentNumText;
+    @FXML
+    private CheckBox gamingCheckBox;
+    @FXML
+    private CheckBox paintBallingCheckBox;
+    @FXML
+    private CheckBox hikingCheckBox;
+    @FXML
+    private CheckBox readingCheckBox;
+    @FXML
+    private CheckBox pickingFlowersCheckBox;
+    @FXML
+    private CheckBox PrintingCheckBox;
+    @FXML
+    private CheckBox woodCarvingCheckBox;
+    @FXML
+    private CheckBox tableTennisCheckBox;
+    @FXML
+    private Label warningLabel;
+    @FXML
+    private ImageView imageView;
+    @FXML
+    private DatePicker date;
     private Student newCard;
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-    imageView.setImage(new Image("placeholderimage.png"));
+        imageView.setImage(new Image("placeholderimage.png"));
 
     }
 
     /**
      * This method will open the file explorer so that the user can choose and image that they would like to use on their student card
+     *
      * @param event
      */
-    public void selectImage(ActionEvent event){
+    public void selectImage(ActionEvent event) {
         //get the stage to open a new window
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open Image");
 
         //filters the file chooser to look for only .jpn and .png files
-        FileChooser.ExtensionFilter imageFilter = new FileChooser.ExtensionFilter("Image Files","*.jpg","*.png");
+        FileChooser.ExtensionFilter imageFilter = new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.png");
         fileChooser.getExtensionFilters().add(imageFilter);
 
         //set the starting directory of file chooser
-        String userDirectoryString = System.getProperty("user.home")+"\\pictures";
+        String userDirectoryString = System.getProperty("user.home") + "\\pictures";
         File userDirectory = new File(userDirectoryString);
 
         //confirm that the system can get to the directory
-        if(!userDirectory.canRead()){
+        if (!userDirectory.canRead()) {
             userDirectory = new File(System.getProperty("user.home"));
         }
 
@@ -66,7 +87,7 @@ public class NewStudentViewController implements Initializable {
         //makes the file chooser visible to user
         File imageFile = fileChooser.showOpenDialog(stage);
 
-        if(imageFile != null && imageFile.isFile()){
+        if (imageFile != null && imageFile.isFile()) {
             imageView.setImage(new Image(imageFile.toURI().toString()));
         }
     }
@@ -77,11 +98,32 @@ public class NewStudentViewController implements Initializable {
      * selected check boxes a displays all the new information in the console when the submit button is click or this method
      * is called.
      */
-    public void submitInfo()
-    {
-        String activities = "\nFavourite Activities:";
+
+
+    /**
+     * When this method is called, it will go to my other scene
+     */
+    public void changeScreen(ActionEvent event) throws IOException {
+        Parent tableViewParent = FXMLLoader.load(getClass().getResource("StudentView.fxml"));
+        Scene tableViewScene = new Scene(tableViewParent);
+
+        //get the stage info
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        window.setScene(tableViewScene);
+        window.show();
+    }
+
+    /**
+     * When this method is called, it will pass the info over
+     */
+    public void passInformation(ActionEvent event) throws IOException {
+
+        String activities = "Favourite Activities:";
         String firstName = firstNameText.getText();
         String lastName = lastNameText.getText();
+        LocalDate birthday = date.getValue();
+
 
         if (gamingCheckBox.isSelected()) {
             activities += "\nGaming";
@@ -117,18 +159,41 @@ public class NewStudentViewController implements Initializable {
 
         try {
             int studentNumber = Integer.parseInt(studentNumText.getText());
-            newCard = new Student(firstName, lastName, studentNumber, activities);
+            newCard = new Student(firstName, lastName, studentNumber, activities, birthday, imageView.getImage());
 
-            System.out.print("\nNew Student: " + newCard);
+            Main.getStudents().add(newCard);
+
+            System.out.print("New Student: " + newCard + "\n");
+
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("StudentView.fxml"));
+            Parent tableViewParent = loader.load();
+            Scene tableViewScene = new Scene(tableViewParent);
+
+            //access the controller and call a method
+            StudentViewController controller = loader.getController();
+            controller.initData(newCard);
 
 
-        } catch (IllegalArgumentException e){
+            //get the stage info
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            window.setScene(tableViewScene);
+            window.show();
+
+
+        } catch (IllegalArgumentException e) {
             warningLabel.setText(e.getMessage());
         }
 
         if (firstName.isEmpty()) {
             warningLabel.setText("first name field is empty");
         }
+
+        if (date.getValue() == null) {
+            warningLabel.setText("Birthday field is empty");
+        }
+
 
         if (lastName.isEmpty()) {
             warningLabel.setText("last name field is empty");
@@ -153,6 +218,8 @@ public class NewStudentViewController implements Initializable {
         if (firstNameText.getText().isEmpty() && lastName.isEmpty() && studentNumText.getText().isEmpty()) {
             warningLabel.setText("all fields are empty");
         }
+
     }
+
 
 }
